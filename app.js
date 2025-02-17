@@ -6,47 +6,50 @@ logica creada por Marco Estrada -Jisat
 */
 <script>
     
-    let names = [];
+    let amigos = [];
 
-    function agregarAmigo(){
-
+    function agregarAmigo()
+    {
         input=document.getElementById("amigo");
-    
-        let name=input.value.trim();
-        console.log(name);
+        let nombre=input.value.trim();
+        console.log(nombre);
         
-        if (name!=""){
-            names.push(name);
+        if(nombre!="")
+        {
+            nombre.push(amigos);
             input.value="";
             actualizarListaAmigos();
-            }
-        else 
-            alert("Por favor, ingresa un nombre válido.");
+        }
+        else
+        {
+            alert("Por favor, ingresa un nombre valido");
+        }
     }
 
-    function actualizarListaAmigos(){
-        lista=document.getElementById("listaAmigos");
-        lista.innerHTML = "";
-        names.forEach((name, index) =>
+    function actualizarListaAmigos()
+    {
+        lista=document.getElementById("ListaAmigos");
+        lista.innerHTML="";
+        nombre.forEach((nombre, index)=>
         {
             li=document.createElement("li");
-            li.textContent = name;
+            li.textContent=nombre;
             lista.appendChild(li);
-        });
+        })
     }
 
-    function sortearAmigo(){
-
-        if(names.length==0){
-            alert("No hay nombres en la lista.");
-        return;
+    function sortearAmigo()
+    {
+        if(amigos.length==0)
+        {
+            alert("No hay nombres en la lista de amigos");
+            return;
         }
-
-        else{
-            randomIndex = Math.floor(Math.random() * names.length);
-            let resultado = document.getElementById("resultado");
-            resultado.innerHTML = "<li>Amigo Secreto: " + names[randomIndex] + "</li>";
+        else
+        {
+            randomIndex=Math.floor(Math.random()*nombre.length);
+            let resultado=document.getElementById("resultado");
+            resultado.innerHTML="<li>Tu Amigo Secreto es:"+nombre[randomIndex]+"</li>"
         }
     }
-
 </script>
